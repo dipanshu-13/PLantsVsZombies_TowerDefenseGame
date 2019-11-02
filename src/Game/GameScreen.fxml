@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="379.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game.GameScreen">
+<AnchorPane prefHeight="379.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game.Controller">
    <children>
       <ImageView fitHeight="379.0" fitWidth="648.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -250,5 +250,33 @@
       </ImageView>
       <Button layoutY="14.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="41.0" />
       <Button layoutY="81.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="41.0" />
+      <Button fx:id="backbutton" layoutX="518.0" layoutY="1.0" mnemonicParsing="false" onAction="#backtomainmenu" prefHeight="20.0" prefWidth="55.0" text="Back" />
+      <Button layoutX="576.0" layoutY="1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="55.0" text="Save" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="117.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="117.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="117.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="61.0" layoutX="106.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="106.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

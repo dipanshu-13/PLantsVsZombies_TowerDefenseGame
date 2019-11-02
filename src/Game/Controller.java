@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 public class Controller {
     @FXML
     public Button startgame;
+    @FXML
+    public Button backbutton;
     public void startgame(ActionEvent event) throws Exception{
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Plants VS Zombies");
@@ -19,6 +21,15 @@ public class Controller {
         primaryStage.setScene(scene);
         primaryStage.show();
         Stage stage = (Stage) startgame.getScene().getWindow();
+        stage.close();
+    }
+    public void backtomainmenu(ActionEvent event) throws Exception{
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        primaryStage.setTitle("Plants VS Zombies");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+        Stage stage = (Stage) backbutton.getScene().getWindow();
         stage.close();
     }
 
