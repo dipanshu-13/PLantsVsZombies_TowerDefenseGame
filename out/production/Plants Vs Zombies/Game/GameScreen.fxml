@@ -1,66 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="379.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game.Controller">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.Controller">
     <children>
-        <ImageView fitHeight="379.0" fitWidth="648.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="BackyardImage" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/BackYard.jpg" />
             </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
         </ImageView>
-        <Button layoutX="264.0" layoutY="59.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="40.0" text=" ">
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-        </Button>
-        <ImageView fitHeight="57.0" fitWidth="41.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/SunflowerSeedPacket.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="57.0" fitWidth="89.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/PeashooterSeedPacket.png" />
-            </image>
-        </ImageView>
-        <Button layoutY="14.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="41.0" />
-        <Button layoutY="81.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="41.0" />
-        <Button fx:id="backbutton" layoutX="518.0" layoutY="1.0" mnemonicParsing="false" onAction="#backtomainmenu" prefHeight="20.0" prefWidth="55.0" text="Back" />
-        <Button layoutX="576.0" layoutY="1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="55.0" text="Save" />
-        <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="117.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/Lawn_mower_2.PNG.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="117.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/Lawn_mower_2.PNG.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="117.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/Lawn_mower_2.PNG.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="39.0" fitWidth="61.0" layoutX="106.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/Lawn_mower_2.PNG.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="44.0" fitWidth="55.0" layoutX="106.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/Lawn_mower_2.PNG.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="63.0" fitWidth="55.0" layoutX="257.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@img/Peashooter_dancing.gif" />
-            </image>
-        </ImageView>
+        <Button fx:id="BackButton" ellipsisString="" layoutX="827.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#backToMainMenu" onMousePressed="#buttonPress" onMouseReleased="#buttonRelease" prefHeight="36.0" prefWidth="130.0">
+         <graphic>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/BackButton.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+        <Button fx:id="SaveGameButton" ellipsisString="" layoutX="647.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMousePressed="#buttonPress" onMouseReleased="#buttonRelease" prefHeight="36.0" prefWidth="130.0">
+         <graphic>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/SaveGameButton.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <GridPane fx:id="Lawn" layoutX="251.0" layoutY="81.0" onMouseDragEntered="#selectPlantSeed" onMouseDragReleased="#selectPlantSeed" prefHeight="488.0" prefWidth="723.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints fx:id="Lane1" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints fx:id="Lane2" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints fx:id="Lane3" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints fx:id="Lane4" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints fx:id="Lane5" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="122.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@img/Peashooter_dancing.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="109.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@img/sunflower_idle.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="116.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@img/PeaShooter_Spit.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <ImageView fx:id="PlantTray" fitHeight="109.0" fitWidth="492.0" layoutX="2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Plant_Tray.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="SunPoints" alignment="CENTER_RIGHT" layoutX="21.0" layoutY="68.0" prefHeight="25.0" prefWidth="47.0" text="0" textAlignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </Label>
+      <HBox fx:id="CardHolder" layoutX="90.0" layoutY="8.0" prefHeight="82.0" prefWidth="392.0" spacing="8.0">
+         <children>
+            <Button fx:id="PeaShooter" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="58.0">
+               <graphic>
+                  <ImageView fitHeight="82.0" fitWidth="58.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@img/PeashooterSeedPacket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Sunflower" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="58.0">
+               <graphic>
+                  <ImageView fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/SunflowerSeedPacket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="CherryBomb" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="58.0">
+               <graphic>
+                  <ImageView fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/CherryBombSeedPacket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="WallNut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="58.0">
+               <graphic>
+                  <ImageView fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Wall-nutSeedPacket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Squasher" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="58.0">
+               <graphic>
+                  <ImageView fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/SquashSeedPacket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="RepeaterCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="80.0" prefWidth="58.0">
+               <graphic>
+                  <ImageView fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/RepeaterSeedPacket.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <ImageView fx:id="LawnMower1" fitHeight="54.0" fitWidth="73.0" layoutX="185.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="LawnMower11" fitHeight="54.0" fitWidth="73.0" layoutX="185.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="LawnMower111" fitHeight="54.0" fitWidth="73.0" layoutX="178.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="LawnMower1111" fitHeight="54.0" fitWidth="73.0" layoutX="185.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="LawnMower11111" fitHeight="54.0" fitWidth="73.0" layoutX="185.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Lawn_mower_2.PNG.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Zombie1" fitHeight="150.0" fitWidth="162.0" layoutX="849.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Conehead_Zombie.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Pea" fitHeight="30.0" fitWidth="30.0" layoutX="390.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Pea_2.png" />
+         </image></ImageView>
+      <ImageView fx:id="Sun" fitHeight="107.0" fitWidth="96.0" layoutX="476.0" layoutY="-108.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Sun_PvZ2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Zombie2" fitHeight="150.0" fitWidth="162.0" layoutX="849.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Conehead_Zombie.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="PlayPrompt" ellipsisString="" layoutX="401.0" layoutY="199.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startPlaying" onMousePressed="#buttonPress" onMouseReleased="#buttonRelease" prefHeight="58.0" prefWidth="120.0">
+         <graphic>
+            <ImageView fitHeight="78.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/PlayPrompt.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ProgressBar fx:id="gameProgress" layoutX="792.0" layoutY="569.0" prefWidth="200.0" progress="0.0" rotate="180.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" />
+         </effect></ProgressBar>
     </children>
 </AnchorPane>
