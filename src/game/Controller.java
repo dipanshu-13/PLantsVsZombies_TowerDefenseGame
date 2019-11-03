@@ -16,8 +16,6 @@ import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.util.Timer;
-
 public class Controller {
     @FXML
     public Button StartGameButton, LoadGameButton, LevelButton, ExitButton;
